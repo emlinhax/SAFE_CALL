@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Disassembler\ByteBuffer.cs" />
+    <Compile Include="Disassembler\CollectionHelpers.cs" />
+    <Compile Include="Disassembler\DisassembledType.cs" />
+    <Compile Include="Disassembler\ILDisassembler.cs" />
+    <Compile Include="Disassembler\Instruction.cs" />
+    <Compile Include="Disassembler\MethodBodyReader.cs" />
+    <Compile Include="Disassembler\OutputWriter.cs" />
     <Compile Include="SAFE_CALL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />

@@ -32,11 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ILDisassembler">
+      <HintPath>..\..\..\..\Downloads\ILDisassembler-master\ILDisassembler\bin\Release\ILDisassembler.dll</HintPath>
+    </Reference>
     <Reference Include="SAFE_CALL">
       <HintPath>..\SAFE_CALL\bin\Release\SAFE_CALL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

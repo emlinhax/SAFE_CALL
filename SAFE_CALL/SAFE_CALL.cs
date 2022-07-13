@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 
 namespace SAFE_CALL
 {
-    public unsafe static class SC
+    public unsafe static class _
     {
         [DllImport("kernel32.dll")]
         public static extern IntPtr LoadLibrary(string dllToLoad);
@@ -26,16 +28,52 @@ namespace SAFE_CALL
         {
             MethodInfo method = Utils.FindCorrectMethod(t, name, args);
             if (method == null)
-                throw new Exception("Could not find " + t.Name + " | " + name);
+                throw new Exception("Could not find " + t.Name + "." + name);
 
-            //if (IsHooked_IsDebuggerPresent())
+            //if (!IsMethodSafe(method) || IsHooked_IsDebuggerPresent())
             //    return null;
 
-            if (!IsMethodSafe(method))
-                return null;
+            DynamicMethod dynamicMethod = CreateShadowCopy(method);
 
-            object result = method.Invoke(instance, args);
+            object result = dynamicMethod.Invoke(instance, args);
             return result;
+        }
+
+        public static DynamicMethod CreateShadowCopy(MethodInfo method)
+        {
+            List<Type> parameters = new List<Type>();
+            foreach (var par in method.GetParameters())
+            {
+                parameters.Add(par.ParameterType);
+            }
+
+            DynamicMethod dm = new DynamicMethod("_" + method.Name, method.ReturnType, parameters.ToArray());
+            var il = dm.GetILGenerator();
+
+            var instructions = ILDisassembler.MethodBodyReader.GetInstructions(method);
+            foreach (ILDisassembler.Instruction instruction in instructions)
+            {
+                //Console.WriteLine(instruction.OpCode + " " + instruction.Operand);
+                switch (instruction.OpCode.OperandType)
+                {
+                    case OperandType.InlineNone:
+                        if (instruction.OpCode == OpCodes.Ldarg_1)
+                            il.Emit(OpCodes.Ldarg_0);
+                        else
+                            il.Emit(instruction.OpCode);
+                        break;
+                    case OperandType.InlineMethod:
+                        il.Emit(instruction.OpCode, (MethodInfo)instruction.Operand);
+                        break;
+                    case OperandType.InlineString:
+                        il.Emit(instruction.OpCode, (string)instruction.Operand);
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+
+            return dm;
         }
 
         public static bool IsMethodSafe(MethodInfo method)

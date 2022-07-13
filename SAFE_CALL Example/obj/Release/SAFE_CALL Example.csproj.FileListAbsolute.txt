@@ -8,3 +8,8 @@ C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CAL
 C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.csproj.CopyComplete
 C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.exe
 C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\ILDisassembler.dll
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\System.Collections.Immutable.dll
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\ILDisassembler.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\ILDisassembler.xml
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\System.Collections.Immutable.xml

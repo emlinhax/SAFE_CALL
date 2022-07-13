@@ -10,6 +10,36 @@ namespace SAFE_CALL
 {
     public static class Utils
     {
+        [Flags]
+        public enum AllocationType
+        {
+            Commit = 0x1000,
+            Reserve = 0x2000,
+            Decommit = 0x4000,
+            Release = 0x8000,
+            Reset = 0x80000,
+            Physical = 0x400000,
+            TopDown = 0x100000,
+            WriteWatch = 0x200000,
+            LargePages = 0x20000000
+        }
+
+        [Flags]
+        public enum MemoryProtection
+        {
+            Execute = 0x10,
+            ExecuteRead = 0x20,
+            ExecuteReadWrite = 0x40,
+            ExecuteWriteCopy = 0x80,
+            NoAccess = 0x01,
+            ReadOnly = 0x02,
+            ReadWrite = 0x04,
+            WriteCopy = 0x08,
+            GuardModifierflag = 0x100,
+            NoCacheModifierflag = 0x200,
+            WriteCombineModifierflag = 0x400
+        }
+        
         [DllImport("kernel32.dll")]
         public static extern IntPtr LoadLibrary(string dllToLoad);
 
@@ -19,6 +49,9 @@ namespace SAFE_CALL
         [DllImport("kernel32.dll")]
         public static extern bool IsDebuggerPresent();
 
+        [DllImport("kernel32")]
+        public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+
         public static bool Isx64() { return IntPtr.Size == 8; }
 
         public static MethodInfo FindCorrectMethod(Type _class, string name, object[] args = null)
@@ -27,7 +60,8 @@ namespace SAFE_CALL
             {
                 try
                 {
-                    if (method.Name == name)
+                    ParameterInfo[] parameters = method.GetParameters();
+                    if (method.Name == name && args.Length == parameters.Length)
                     {
                         if (args == null)
                             return method;
@@ -35,7 +69,7 @@ namespace SAFE_CALL
                         bool invalid = false;
                         for (int i = method.IsStatic ? 0 : 1; i < args.Length; i++)   //Cycle through all arguments and see if they match up
                         {
-                            if (method.GetParameters()[i].ParameterType != args[i].GetType())
+                            if (parameters[i].ParameterType != args[i].GetType())
                             {
                                 invalid = true;
                                 break;
@@ -52,6 +86,13 @@ namespace SAFE_CALL
             }
 
             return null;
+        }
+
+        public static void CopyFromPtrToPtr(IntPtr src, uint srcLen, IntPtr dst, uint dstLen)
+        {
+            var buffer = new byte[srcLen];
+            Marshal.Copy(src, buffer, 0, buffer.Length);
+            Marshal.Copy(buffer, 0, dst, (int)Math.Min(buffer.Length, dstLen));
         }
     }
 }
