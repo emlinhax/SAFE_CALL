@@ -17,4 +17,4 @@ Internals of what the library does:
 #### ShadowCopy:
 Creating a shadow-copy will prevent reversers from 
 placing a breakpoint on the function you are trying to call 
-and also prevent hooking (as long as the function is checked for hooks before copying it)
+and makes it hard to follow the program-flow
