@@ -13,8 +13,6 @@ namespace SAFE_CALL_Example
         static void Main(string[] args)
         {
             _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
-
-            Console.ReadKey();
         }
     }
 }
