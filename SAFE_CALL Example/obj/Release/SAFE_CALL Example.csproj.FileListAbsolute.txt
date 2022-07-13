@@ -1,0 +1,10 @@
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\SAFE_CALL Example.exe.config
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\SAFE_CALL Example.exe
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\SAFE_CALL Example.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\SAFE_CALL.dll
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\bin\Release\SAFE_CALL.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.csproj.AssemblyReference.cache
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.csproj.CoreCompileInputs.cache
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.csproj.CopyComplete
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.exe
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL Example\obj\Release\SAFE_CALL Example.pdb

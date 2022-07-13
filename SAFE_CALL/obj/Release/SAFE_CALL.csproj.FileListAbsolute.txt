@@ -1,0 +1,12 @@
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\bin\Release\SAFE_CALL.dll
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\bin\Release\SAFE_CALL.pdb
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.csproj.AssemblyReference.cache
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.csproj.CoreCompileInputs.cache
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.dll
+C:\Users\emlin\source\repos\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\bin\Release\SAFE_CALL.dll
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\bin\Release\SAFE_CALL.pdb
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.csproj.AssemblyReference.cache
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.csproj.CoreCompileInputs.cache
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.dll
+C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Release\SAFE_CALL.pdb
