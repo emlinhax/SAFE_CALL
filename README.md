@@ -8,6 +8,8 @@ Usage:
 _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
 ```
 
+NOTE: It works best with static methods and doesnt really like instances. That will hopefully change in the future.
+
 
 Internals of what the library does:
 1. Check if the function you are trying to call is hooked
