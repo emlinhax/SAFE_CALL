@@ -1,6 +1,0 @@
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\bin\Debug\SAFE_CALL.dll
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\bin\Debug\SAFE_CALL.pdb
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Debug\SAFE_CALL.csproj.AssemblyReference.cache
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Debug\SAFE_CALL.csproj.CoreCompileInputs.cache
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Debug\SAFE_CALL.dll
-C:\Users\emlin\Documents\GitHub\SAFE_CALL\SAFE_CALL\obj\Debug\SAFE_CALL.pdb
