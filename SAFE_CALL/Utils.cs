@@ -52,6 +52,9 @@ namespace SAFE_CALL
         [DllImport("kernel32")]
         public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
 
+        [DllImport("msvcrt.dll", EntryPoint = "memset", CallingConvention = CallingConvention.Cdecl, SetLastError = false)]
+        public static extern IntPtr memset(IntPtr dest, int c, int byteCount);
+
         public static bool Isx64() { return IntPtr.Size == 8; }
 
         public static MethodInfo FindCorrectMethod(Type _class, string name, object[] args = null)
