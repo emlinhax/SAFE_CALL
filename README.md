@@ -5,7 +5,10 @@ It works on x86 and x64 and also allows calls to .NET Framework functions as see
 
 Usage:
 ``` cs
+//static method
 _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
+
+//instance method
 _.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pastebin.com/raw/fBqd8yM6");
 ```
 
