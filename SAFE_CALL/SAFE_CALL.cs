@@ -19,6 +19,8 @@ namespace SAFE_CALL
 
         public static bool Isx64() { return IntPtr.Size == 8; }
 
+        public static bool bCreateShadowCopies = true;
+
         public static object SAFE_CALL(Type t, string name, params object[] args)
         {
             return SAFE_CALL(null, t, name, args);
@@ -30,11 +32,19 @@ namespace SAFE_CALL
             if (method == null)
                 throw new Exception("Could not find " + t.Name + "." + name);
 
-            if (!IsMethodSafe(method) || IsHooked_IsDebuggerPresent())
-                return null;
+            //if (!IsMethodSafe(method) || IsHooked_IsDebuggerPresent())
+            //    return null;
 
-            DynamicMethod dynamicMethod = CreateShadowCopy(method);
-            object result = dynamicMethod.Invoke(instance, args);
+            object result = null;
+            if (bCreateShadowCopies)
+            {
+                DynamicMethod dynamicMethod = CreateShadowCopy(method);
+                result = dynamicMethod.Invoke(instance, args);
+            }
+            else
+            {
+                result = method.Invoke(instance, args);
+            }
 
             return result;
         }
@@ -53,7 +63,6 @@ namespace SAFE_CALL
             var instructions = ILDisassembler.MethodBodyReader.GetInstructions(method);
             foreach (ILDisassembler.Instruction instruction in instructions)
             {
-                //Console.WriteLine(instruction.OpCode + " " + instruction.Operand);
                 switch (instruction.OpCode.OperandType)
                 {
                     case OperandType.InlineNone:
@@ -63,15 +72,22 @@ namespace SAFE_CALL
                             il.Emit(instruction.OpCode);
                         break;
                     case OperandType.InlineMethod:
-                        il.Emit(instruction.OpCode, (MethodInfo)instruction.Operand);
+                        if(instruction.Operand.GetType() == typeof(MethodInfo))
+                            il.Emit(instruction.OpCode, (MethodInfo)instruction.Operand);
+                        else if(instruction.Operand.GetType().Name == "RuntimeConstructorInfo")
+                            il.Emit(instruction.OpCode, (ConstructorInfo)instruction.Operand);
                         break;
                     case OperandType.InlineString:
                         il.Emit(instruction.OpCode, (string)instruction.Operand);
+                        break;
+                    case OperandType.ShortInlineBrTarget:
+                        il.Emit(instruction.OpCode);
                         break;
                     default:
                         throw new NotImplementedException();
                 }
             }
+
             return dm;
         }
 

@@ -66,12 +66,15 @@ namespace SAFE_CALL
                     ParameterInfo[] parameters = method.GetParameters();
                     if (method.Name == name && args.Length == parameters.Length)
                     {
-                        if (args == null)
+                        if (args == null || parameters == null)
                             return method;
-
+                        
                         bool invalid = false;
-                        for (int i = method.IsStatic ? 0 : 1; i < args.Length; i++)   //Cycle through all arguments and see if they match up
+                        for (int i = 0; i < args.Length; i++)   //Cycle through all arguments and see if they match up
                         {
+                            if (args[i] == null)
+                                continue;
+
                             if (parameters[i].ParameterType != args[i].GetType())
                             {
                                 invalid = true;
