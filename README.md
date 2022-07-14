@@ -14,7 +14,9 @@ _.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pas
 
 NOTE: It works best with static methods. Instances can cause issues.
       If you encounter any issue with shadowcopy you can disable it globally using:
-      ``` cs _.bCreateShadowCopies = false;```
+      ``` cs 
+      _.bCreateShadowCopies = false;
+      ```
 
 
 Internals of what the library does:
