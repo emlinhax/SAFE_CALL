@@ -11,7 +11,7 @@ _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
 //instance method
 _.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pastebin.com/raw/fBqd8yM6");
 ```
-<br/><br/>
+<br/>
 
 NOTE: It works best with static methods. Instances can cause issues.
       If you encounter any issue with shadowcopy you can disable it globally using:
