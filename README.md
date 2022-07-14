@@ -6,6 +6,7 @@ It works on x86 and x64 and also allows calls to .NET Framework functions as see
 Usage:
 ``` cs
 _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
+_.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pastebin.com/raw/fBqd8yM6");
 ```
 
 NOTE: It works best with static methods and doesnt really like instances. That will hopefully change in the future.
