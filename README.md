@@ -12,7 +12,9 @@ _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
 _.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pastebin.com/raw/fBqd8yM6");
 ```
 
-NOTE: It works best with static methods and doesnt really like instances. That will hopefully change in the future.
+NOTE: It works best with static methods. Instances can cause issues.
+      If you encounter any issue with shadowcopy you can disable it globally using:
+      ``` cs _.bCreateShadowCopies = false;```
 
 
 Internals of what the library does:
