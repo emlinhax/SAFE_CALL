@@ -1,12 +1,24 @@
 # SAFE_CALL
 
 This simple library allows you to protect yourself against reverse engineers.
+It works on x86 and x64 and also allows calls to .NET Framework functions as seen in the usage-example below.
 
 Usage:
 ``` cs
+//static method
 _.SAFE_CALL(typeof(Console), "WriteLine", "Hello World!");
-```
 
+//instance method
+_.SAFE_CALL(webClientInstance, typeof(WebClient), "DownloadString", "https://pastebin.com/raw/fBqd8yM6");
+```
+<br/>
+
+NOTE: It works best with static methods. Instances can cause issues.
+      If you encounter any issue with shadowcopy you can disable it globally using:
+``` cs 
+_.bCreateShadowCopies = false;
+```
+<br/>
 
 Internals of what the library does:
 1. Check if the function you are trying to call is hooked
@@ -17,4 +29,4 @@ Internals of what the library does:
 #### ShadowCopy:
 Creating a shadow-copy will prevent reversers from 
 placing a breakpoint on the function you are trying to call 
-and makes it hard to follow the program-flow
+and makes it hard to follow the program-flow.
