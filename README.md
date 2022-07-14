@@ -18,7 +18,7 @@ NOTE: It works best with static methods. Instances can cause issues.
 ``` cs 
 _.bCreateShadowCopies = false;
 ```
-
+<br/>
 
 Internals of what the library does:
 1. Check if the function you are trying to call is hooked
