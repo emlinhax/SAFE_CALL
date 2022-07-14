@@ -1,7 +1,7 @@
 # SAFE_CALL
 
 This simple library allows you to protect yourself against reverse engineers.
-It works on x86 and x64 and also allows calls to .NET Framework functions as seen in the usage-example below.
+It works on x86 and x64 and is meant for calls to dotnet-framework functions as seen in the usage-example below.
 
 Usage:
 ``` cs
