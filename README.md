@@ -1,5 +1,5 @@
 # SAFE_CALL
-
+<pre>
 This simple library allows you to protect yourself against reverse engineers.
 It works on x86 and x64 and also allows calls to .NET Framework functions as seen in the usage-example below.
 
@@ -29,3 +29,4 @@ Internals of what the library does:
 Creating a shadow-copy will prevent reversers from 
 placing a breakpoint on the function you are trying to call 
 and makes it hard to follow the program-flow
+</pre>
