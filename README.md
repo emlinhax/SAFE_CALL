@@ -1,7 +1,7 @@
 # SAFE_CALL
 
 This simple library allows you to protect yourself against reverse engineers.
-It works on x86 and x64 and also allows calls to .NET Framework functions as seen in the usage-example below.
+It works on x86 and x64 and is meant for calls to the dotnet-framework as seen in the usage-example below.
 
 Usage:
 ``` cs
@@ -30,3 +30,10 @@ Internals of what the library does:
 Creating a shadow-copy will prevent reversers from 
 placing a breakpoint on the function you are trying to call 
 and makes it hard to follow the program-flow.
+
+#### NOTE:
+This whole library can be merged into a single .cs file so it does not have to be an external dependency.
+Just add it to your project and you are good to go.
+
+This project could also be modified to throw a custom exception, when a call is unsafe or fails.
+The developer could then catch the exception and do what they want to. For example: (close the app, report violation, etc.)
