@@ -34,3 +34,6 @@ and makes it hard to follow the program-flow.
 #### NOTE:
 This whole library can be merged into a single .cs file so it does not have to be an external dependency.
 Just add it to your project and you are good to go.
+
+This project could also be modified to throw a custom exception, when a call is unsafe or fails.
+The developer could then catch the exception and do what they want to. For example: (close the app, report violation, etc.)
