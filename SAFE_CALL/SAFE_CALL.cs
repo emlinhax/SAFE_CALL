@@ -104,12 +104,12 @@ namespace SAFE_CALL
 
             if (Isx64())
             {
-                if (firstByte != 0x56 || secondByte != 0x48)
+                if (firstByte != 0xE8 && (firstByte != 0x56 || secondByte != 0x48))
                     return false;
             }
             else
             {
-                if (firstByte != 0x55 || secondByte != 0x8B)
+                if (firstByte != 0xB8 && (firstByte != 0x55 || secondByte != 0x8B))
                     return false;
             }
 
