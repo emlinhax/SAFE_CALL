@@ -30,3 +30,7 @@ Internals of what the library does:
 Creating a shadow-copy will prevent reversers from 
 placing a breakpoint on the function you are trying to call 
 and makes it hard to follow the program-flow.
+
+#### NOTE:
+This whole library can be merged into a single .cs file so it does not have to be an external dependency.
+Just add it to your project and you are good to go.
